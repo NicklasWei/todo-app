@@ -1,0 +1,31 @@
+// --- CLASSES --- // - - - - - - - - - - - - - - - - - - - - - - - - |
+
+/// @author Nicklas Wei <wei.nicklas@gmail.com>
+/// Classes for use with Sass @extend or as class attributes.
+
+// --- Positioning --- // - - - - - - - - - - - - - - - - - - - - - - - |
+
+/// Class for vertically and horizontally aligning
+/// the element's children using flexbox.
+///
+/// @group helpers/classes
+/// @example scss - Style '.el'
+///   .el {
+///     @extend .flex-center;
+///   }
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/// Class for setting width property to 100%.
+///
+/// @group helpers/classes
+/// @example scss - Style '.el'
+///   .el {
+///     @extend .width-full;
+///   }
+.width-full {
+  width: 100%;
+}

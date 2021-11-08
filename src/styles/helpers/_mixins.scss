@@ -1,0 +1,256 @@
+// --- MIXINS --- // - - - - - - - - - - - - - - - - - - - - - - - - |
+
+/// @author Nicklas Wei <wei.nicklas@gmail.com>
+/// A variety of useful mixins such as shorthands for frequently used CSS properties.
+
+// --- Box Model --- //  - - - - - - - - - - - - - - - - - - - - - |
+
+/// Shorthand for defining 'width' and 'height' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $width - Element's width
+/// @param { String } $height - Element's height
+/// @output 'width' and 'height'
+/// @example scss - Style '.el'
+///   .el {
+///     @include size(30px, 100%)
+///   }
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+/// Shorthand for defining 'max-width' and 'max-height' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $max-width - Element's max-width
+/// @param { String } $max-height - Element's max-height
+/// @output 'max-width' and 'max-height'
+/// @example scss - Style '.el'
+///   .el {
+///     @include max-size(30px, 60px)
+///   }
+@mixin max-size($max-width, $max-height) {
+  max-width: $max-width;
+  max-height: $max-height;
+}
+
+/// Shorthand for defining 'min-width' and 'min-height' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $min-width - Element's min-width
+/// @param { String } $min-height - Element's min-height
+/// @output 'min-width' and 'min-height'
+/// @example scss - Style '.el'
+///   .el {
+///     @include min-size(30px, 60px)
+///   }
+@mixin min-size($min-width, $min-height) {
+  min-width: $min-width;
+  min-height: $min-height;
+}
+
+/// Shorthand for defining 'margin' and 'padding' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $margin - Element's margin
+/// @param { String } $padding - Element's padding
+/// @output 'margin' and 'padding'
+/// @example scss - Style '.el'
+///   .el {
+///     @include space(5px 5px 5px 5px, 10em)
+///   }
+@mixin space($margin, $padding) {
+  margin: $margin;
+  padding: $padding;
+}
+
+/// Shorthand for defining 'margin-top' and 'margin-bottom' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $margin-top - Element's top margin
+/// @param { String } $margin-bottom - Element's bottom margin
+/// @output 'margin-top' and 'margin-bottom'
+/// @example scss - Style '.el'
+///   .el {
+///     @include margin-vertical(5px, 10em)
+///   }
+@mixin margin-vertical($margin-top, $margin-bottom) {
+  margin-top: $margin-top;
+  margin-bottom: $margin-bottom;
+}
+
+/// Shorthand for defining 'margin-left' and 'margin-right' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $margin-top - Element's left margin
+/// @param { String } $margin-bottom - Element's right margin
+/// @output 'margin-left' and 'margin-right'
+/// @example scss - Style '.el'
+///   .el {
+///     @include margin-horizontal(5px, 10em)
+///   }
+@mixin margin-horizontal($margin-left, $margin-right) {
+  margin-left: $margin-left;
+  margin-right: $margin-right;
+}
+
+/// Shorthand for defining 'padding-top' and 'padding-bottom' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $padding-top - Element's top padding
+/// @param { String } $padding-bottom - Element's bottom padding
+/// @output 'padding-top' and 'padding-bottom'
+/// @example scss - Style '.el'
+///   .el {
+///     @include padding-vertical(5px, 10em)
+///   }
+@mixin padding-vertical($padding-top, $padding-bottom) {
+  padding-top: $padding-top;
+  padding-bottom: $padding-bottom;
+}
+
+/// Shorthand for defining 'padding-left' and 'padding-right' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $padding-left - Element's left padding
+/// @param { String } $padding-right - Element's right padding
+/// @output 'padding-left' and 'padding-right'
+/// @example scss - Style '.el'
+///   .el {
+///     @include padding-horizontal(5px, 10em)
+///   }
+@mixin padding-horizontal($padding-left, $padding-right) {
+  padding-left: $padding-left;
+  padding-right: $padding-right;
+}
+
+/// Shorthand for defining 'border-width', 'border-radius',
+/// and 'border-color' in a single line (for when 'border'
+/// isn't available, like in NativeScript).
+///
+/// @group helpers/mixins
+/// @param { String } $border-width - Element's border width
+/// @param { String } $border-radius - Element's border radius
+/// @param { String } $border-color - Element's border color
+/// @output 'border-width', 'border-radius', and 'border-color'
+/// @example scss - Style '.el'
+///   .el {
+///     @include border-properties(5px, 10px, red)
+///   }
+@mixin border-properties($border-width, $border-radius, $border-color) {
+  border-width: $border-width;
+  border-radius: $border-radius;
+  border-color: $border-color;
+}
+
+/// Shorthand for defining 'border-top-width', and
+/// 'border-top-color' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $border-top-width - Element's border width
+/// @param { String } $border-top-color - Element's border color
+/// @output 'border-top-width' and 'border-top-color'
+/// @example scss - Style '.el'
+///   .el {
+///     @include border-top(5px, #FFFFFF)
+///   }
+@mixin border-top($border-width, $border-color) {
+  border-top-width: $border-width;
+  border-top-color: $border-color;
+}
+
+/// Shorthand for defining 'border-right-width', and
+/// 'border-right-color' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $border-right-width - Element's border width
+/// @param { String } $border-right-color - Element's border color
+/// @output 'border-right-width' and 'border-right-color'
+/// @example scss - Style '.el'
+///   .el {
+///     @include border-right(8px, blue)
+///   }
+@mixin border-right($border-width, $border-color) {
+  border-right-width: $border-width;
+  border-right-color: $border-color;
+}
+
+/// Shorthand for defining 'border-bottom-width', and
+/// 'border-bottom-color' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $border-bottom-width - Element's border width
+/// @param { String } $border-bottom-color - Element's border color
+/// @output 'border-bottom-width' and 'border-bottom-color'
+/// @example scss - Style '.el'
+///   .el {
+///     @include border-bottom(8px, blue)
+///   }
+@mixin border-bottom($border-width, $border-color) {
+  border-bottom-width: $border-width;
+  border-bottom-color: $border-color;
+}
+
+/// Shorthand for defining 'border-right-width', and
+/// 'border-right-color' in a single line.
+///
+/// @group helpers/mixins
+/// @param { String } $border-left-width - Element's border width
+/// @param { String } $border-left-color - Element's border color
+/// @output 'border-left-width' and 'border-left-color'
+/// @example scss - Style '.el'
+///   .el {
+///     @include border-right(8px, blue)
+///   }
+@mixin border-left($border-width, $border-color) {
+  border-left-width: $border-width;
+  border-left-color: $border-color;
+}
+
+// --- Typography --- // - - - - - - - - - - - - - - - - - - - - - - |
+
+/// Shorthand for defining 'font-size', 'font-weight',
+/// 'font-family' and 'color' on a single line.
+/// Use native 'font' if need to define more font properties.
+///
+/// @group helpers/mixins
+/// @param { String } $size - Font size
+/// @param { Number } $weight - Font weight
+/// @param { String } $family - Font family
+/// @param { Color } $color - Font color
+/// @output 'font-size', 'font-weight', 'font-family', and 'color'
+/// @example scss - Style '.el'
+///   .el {
+///     @include font-property(16px, 500, $font-stack, #333333)
+///   }
+@mixin font-property($size, $weight, $family, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  font-family: $family;
+  color: $color;
+}
+
+// --- Other --- // - - - - - - - - - - - - - - - - - - - - - - |
+
+/// Breakpoint Manager
+/// @param {String} $breakpoint - The Breakpoint
+/// @requires $breakpoints
+@mixin break-at($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}

@@ -1,5 +1,7 @@
 # Todo App
 
+A Todo App written with Vue 3, TypeScript and Sass, with Jest Unit Testing.
+
 ## Project setup
 ```
 npm install

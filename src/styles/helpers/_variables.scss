@@ -1,0 +1,17 @@
+
+
+$primary-color: #4db6ac;
+$background-color: #fafafa;
+$text-color: #333;
+
+
+$space-small: 1em;
+$space-medium: 2em;
+$space-large: 4em;
+$space-huge: 8em;
+
+$breakpoints: (
+  'tiny' : (max-width: 400px),
+  'small': (max-width: 800px),
+  'medium': (max-width: 1100px),
+);
