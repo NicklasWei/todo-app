@@ -3,15 +3,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import Todo from './components/Todo.vue'
+import { defineComponent } from 'vue';
+import Todos from './components/Todos.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    Todo,
+    Todos,
   },
-})
+});
 </script>
 
 <style lang="scss">

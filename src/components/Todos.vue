@@ -43,11 +43,20 @@
             v-for="(todo, todoIndex) in todos"
             :key="todo.content"
           >
-            <span class="todo-content">{{ todo.content }}</span>
+            <input
+              class="todo-content"
+              type="text"
+              v-model.lazy="todo.content"
+            />
 
-            <i class="removeBtn material-icons" @click="removeTodo(todoIndex)">
-              clear
-            </i>
+            <span class="todo-btn-container">
+              <i
+                class="remove-btn material-icons"
+                @click="removeTodo(todoIndex)"
+              >
+                clear
+              </i>
+            </span>
           </li>
         </ul>
       </div>
@@ -56,18 +65,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, Ref } from 'vue'
-import { Todo } from '../types'
-import { capitalize } from '../utils/functions'
-import PokeGenerator from '../utils/PokeGenerator'
+import { defineComponent, ref, Ref } from 'vue';
+import { Todo } from '../types';
+import { capitalize } from '../utils/functions';
+import PokeGenerator from '../utils/PokeGenerator';
 
 export default defineComponent({
-  name: 'Todo',
+  name: 'Todos',
   setup() {
-    let newTodoRef: Ref<string> = ref('')
-    let todos: Ref<Todo[]> = ref([])
+    let newTodoRef: Ref<string> = ref('');
+    let todos: Ref<Todo[]> = ref([]);
 
-    const pokeGenerator: PokeGenerator = new PokeGenerator()
+    const pokeGenerator: PokeGenerator = new PokeGenerator();
 
     /**
      * Adds a todo to the todo array.
@@ -75,11 +84,11 @@ export default defineComponent({
     function addTodo(): void {
       const newTodo: Todo = {
         content: newTodoRef.value,
-      }
+      };
 
       if (newTodo.content) {
-        todos.value.push(newTodo)
-        newTodoRef.value = ''
+        todos.value.push(newTodo);
+        newTodoRef.value = '';
       }
     }
 
@@ -88,7 +97,7 @@ export default defineComponent({
      * @param {number} todoIndex Index of the todo in the todos array.
      */
     function removeTodo(todoIndex: number): void {
-      todos.value.splice(todoIndex, 1)
+      todos.value.splice(todoIndex, 1);
     }
 
     /**
@@ -96,11 +105,12 @@ export default defineComponent({
      * using PokeGenerator class.
      */
     async function addPokemon(): Promise<void> {
-      const pokemon: string | undefined = await pokeGenerator.getRandomPokemon()
+      const pokemon: string | undefined =
+        await pokeGenerator.getRandomPokemon();
 
       if (pokemon) {
-        newTodoRef.value = capitalize(pokemon)
-        addTodo()
+        newTodoRef.value = capitalize(pokemon);
+        addTodo();
       }
     }
 
@@ -110,9 +120,9 @@ export default defineComponent({
       addTodo,
       removeTodo,
       addPokemon,
-    }
+    };
   },
-})
+});
 </script>
 
 <style scoped lang="scss">
@@ -187,14 +197,25 @@ h1 {
 
 .todo-card {
   @extend .flex-center;
-  padding-top: $space-small;
-  padding-right: $space-medium;
+  padding-top: $space-tiny;
+  padding-right: $space-small;
   text-align: left;
 }
 
-.removeBtn {
-  display: block;
+.todo-content {
+  border-bottom: none !important; // Remove Materialize CSS default
+  padding: 0 !important;
+  margin: 0 !important;
+  height: auto !important;
+  width: auto !important;
+}
+
+.todo-btn-container {
+  display: flex;
   margin-left: auto;
+}
+
+.todo-btn-container i {
   cursor: pointer;
 }
 
