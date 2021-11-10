@@ -1,11 +1,11 @@
 import { shallowMount } from '@vue/test-utils';
 import App from '@/App.vue';
-import Todo from '@/components/Todo.vue';
+import Todos from '@/components/Todos.vue';
 
 describe('App.vue', () => {
   const wrapper = shallowMount(App);
 
-  it('Todo component mounted on App', () => {
-    expect(wrapper.findComponent(Todo).exists()).toBe(true);
+  it('Todos component mounted on App', () => {
+    expect(wrapper.findComponent(Todos).exists()).toBe(true);
   });
 });

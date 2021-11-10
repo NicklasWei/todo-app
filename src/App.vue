@@ -1,5 +1,5 @@
 <template>
-  <Todo />
+  <Todos />
 </template>
 
 <script lang="ts">
